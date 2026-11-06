@@ -1,0 +1,80 @@
+```html
+<!-- header.html -->
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand"
+               th:href="@{/}"
+               th:text="#{msg.title}">
+                TL - Ana Uribe
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           th:href="@{/}"
+                           th:text="#{msg.home}">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/regions}"
+                           th:text="#{msg.regions}">
+                            Comunidades Autónomas
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/provinces}"
+                           th:text="#{msg.provinces}">
+                            Provincias
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Selector de idioma -->
+                <form class="d-flex form-inline">
+                    <select name="lang"
+                            class="form-select"
+                            aria-label="Seleccionar idioma"
+                            onchange="window.location.href = this.value">
+
+                        <option value="?lang=es"
+                                th:selected="${#locale.language == 'es'}">
+                            Español
+                        </option>
+
+                        <option value="?lang=en"
+                                th:selected="${#locale.language == 'en'}">
+                            English
+                        </option>
+
+                    </select>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+</header>
+```
